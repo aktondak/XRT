@@ -50,5 +50,5 @@ public:
 
   void initialize();
   void run();
-};;;
+};
 #endif
