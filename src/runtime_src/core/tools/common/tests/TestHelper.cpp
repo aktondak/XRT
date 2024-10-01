@@ -49,6 +49,7 @@ void BO_set::set_kernel_args(xrt::run& run) const {
 void 
 TestCase::initialize()
 {
+  hw_ctx = xrt::hw_context(device, xclbin.get_uuid());
   // Initialize kernels, buffer objects, and runs
   for (int j = 0; j < queue_len; j++) {
     auto kernel = xrt::kernel(hw_ctx, kernel_name);

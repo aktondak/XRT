@@ -36,7 +36,7 @@ class TestCase {
   xrt::xclbin xclbin;               // Xclbin object
   std::string kernel_name;          // Name of the kernel
   xrt::hw_context hw_ctx;           // Hardware context
-  int queue_len;               // Queue length
+  int queue_len;                    // Queue length
   size_t buffer_size;               // Size of the buffer
   int itr_count;                    // Number of iterations
   std::vector<xrt::run> run_list;   // Collection of run objects
@@ -46,7 +46,7 @@ class TestCase {
 public:
   // Constructor to initialize the test case with xclbin and kernel name with hardware context creation
   TestCase(const xrt::xclbin& xclbin, const std::string& kernel, const xrt::device& device)
-      : device(device), xclbin(xclbin), kernel_name(kernel), hw_ctx(device, xclbin.get_uuid()), queue_len(4), buffer_size(1024), itr_count(1000) {}
+      : device(device), xclbin(xclbin), kernel_name(kernel), queue_len(8), buffer_size(1024), itr_count(20000) {}
 
   void initialize();
   void run();
