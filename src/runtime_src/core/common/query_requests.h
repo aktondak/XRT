@@ -595,7 +595,8 @@ struct xclbin_name : request
 {
   enum class type {
     validate,
-    gemm
+    gemm,
+    spatial_sharing
   };
 
   static std::string
@@ -606,6 +607,8 @@ struct xclbin_name : request
         return "validate";
       case type::gemm:
         return "gemm";
+      case type::spatial_sharing:
+        return "spatial_sharing";
     }
     return "unknown";
   }
@@ -631,7 +634,8 @@ struct sequence_name : request
     tct_one_column,
     tct_all_column,
     gemm_int8,
-    aie_reconfig_overhead
+    aie_reconfig_overhead,
+    spatial_sharing
   };
 
   static std::string
@@ -648,6 +652,8 @@ struct sequence_name : request
         return "gemm_int8";
       case type::aie_reconfig_overhead:
         return "aie_reconfig_overhead";
+      case type::spatial_sharing:
+        return "spatial_sharing";
     }
     return "unknown";
   }
