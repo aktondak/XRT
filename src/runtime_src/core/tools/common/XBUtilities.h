@@ -29,6 +29,17 @@
 
 namespace XBUtilities {
 
+  xrt_core::device::id_type
+  get_enumerated_device_count(bool inUserDomain);
+
+  /**
+   * Return a user-PF device suitable for loading xrt-smi JSON config.
+   * Mgmt PF devices have no user handle and cannot serve SMI config.
+   * When device_bdf is empty, returns the first user device found.
+   */
+  std::shared_ptr<xrt_core::device>
+  get_smi_config_device(const std::string& device_bdf, bool inUserDomain);
+
   class Timer {
   private:
     std::chrono::high_resolution_clock::time_point m_time_start;
